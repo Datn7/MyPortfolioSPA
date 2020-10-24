@@ -1,0 +1,9 @@
+mat-form-field input {
+  background-color: whitesmoke;
+  width: 150px;
+  border-radius: 3px;
+}
+
+.white {
+  color: whitesmoke;
+}

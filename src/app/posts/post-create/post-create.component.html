@@ -1,14 +1,30 @@
 <mat-card>
-    <form (submit)="onAddPost(postForm)" #postForm="ngForm">
-        <mat-form-field>
-            <input matInput type="text" ngModel name="title" #title="ngModel" required placeholder="სათაური">
-            <mat-error *ngIf="title.invalid">თაითლი აუცილებელია</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-            <textarea matInput rows="6" ngModel name="content" #content="ngModel" required placeholder="კონტენტი"></textarea>
-            <mat-error *ngIf="content.invalid">კონტენტი აუცილებელია</mat-error>
-        </mat-form-field>
-        
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        ngModel
+        name="title"
+        #title="ngModel"
+        required
+        placeholder="სათაური"
+      />
+      <mat-error *ngIf="title.invalid">თაითლი აუცილებელია</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="6"
+        ngModel
+        name="content"
+        #content="ngModel"
+        required
+        placeholder="კონტენტი"
+      ></textarea>
+      <mat-error *ngIf="content.invalid">კონტენტი აუცილებელია</mat-error>
+    </mat-form-field>
+
     <button mat-raised-button color="warn" type="submit">პოსტის შენახვა</button>
-    </form>
+  </form>
 </mat-card>

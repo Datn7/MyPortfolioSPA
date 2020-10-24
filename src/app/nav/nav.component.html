@@ -1,0 +1,115 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarColor01"
+      aria-controls="navbarColor01"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto" *ngIf="loggedIn()">
+        <li class="nav-item active">
+          <a
+            class="nav-link"
+            [routerLink]="['/home']"
+            routerLinkActive="router-link-active"
+            >მთავარი</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/posts']"
+            routerLinkActive="router-link-active"
+            >პოსტები</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/postcreate']"
+            routerLinkActive="router-link-active"
+            >პოსტის დამატება</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/table']"
+            routerLinkActive="router-link-active"
+            >ცხრილი</a
+          >
+        </li>
+      </ul>
+
+      <div *ngIf="loggedIn()">
+        <a style="color: white"
+          >გამარჯობა {{ _authService.decodedToken?.unique_name }}</a
+        >
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu"
+        >
+          <mat-icon class="white">more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>face</mat-icon>
+            <span>პროფილის შეცვლა</span>
+          </button>
+
+          <button mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon>
+            <span><a (click)="logout()">გასვლა</a></span>
+          </button>
+        </mat-menu>
+      </div>
+
+      <form
+        *ngIf="!loggedIn()"
+        class="form-inline my-2 my-lg-0"
+        #loginForm="ngForm"
+        (ngSubmit)="login()"
+      >
+        <mat-form-field>
+          <input
+            matInput
+            class="form-control mr-sm-2"
+            type="text"
+            placeholder="მომხმარებელი"
+            required
+            [(ngModel)]="model.username"
+            name="username"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            class="form-control mr-sm-2"
+            type="password"
+            placeholder="პაროლი"
+            required
+            [(ngModel)]="model.password"
+            name="password"
+          />
+        </mat-form-field>
+        <button
+          mat-button
+          class="btn btn-secondary my-2 my-sm-0"
+          type="submit"
+          [disabled]="!loginForm.valid"
+        >
+          შესვლა
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
