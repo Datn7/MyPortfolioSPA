@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { MemberListComponent } from './members/member-list/member-list.component';
 import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { RegisterComponent } from './register/register.component';
@@ -17,7 +18,7 @@ const routes: Routes = [
       { path: 'posts', component: PostListComponent },
       { path: 'postcreate', component: PostCreateComponent },
       { path: 'table', component: TableComponent },
-      { path: 'register', component: RegisterComponent },
+      { path: 'members', component: MemberListComponent },
     ],
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },

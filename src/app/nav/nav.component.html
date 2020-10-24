@@ -47,6 +47,14 @@
             >ცხრილი</a
           >
         </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/members']"
+            routerLinkActive="router-link-active"
+            >წევრები</a
+          >
+        </li>
       </ul>
 
       <div *ngIf="loggedIn()">
@@ -68,7 +76,7 @@
 
           <button mat-menu-item>
             <mat-icon>exit_to_app</mat-icon>
-            <span><a (click)="logout()">გასვლა</a></span>
+            <span (click)="logout()">გასვლა</span>
           </button>
         </mat-menu>
       </div>

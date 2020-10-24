@@ -31,6 +31,8 @@ import { ErrorInterceptorProvider } from './_interceptors/error.interceptor';
 import { ReactiveRegisterComponent } from './reactive-register/reactive-register.component';
 
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MemberListComponent } from './members/member-list/member-list.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
     RegisterComponent,
     TableComponent,
     ReactiveRegisterComponent,
+    MemberListComponent,
+    MemberEditComponent,
   ],
   imports: [
     BrowserModule,

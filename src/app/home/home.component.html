@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="_authService.loggedIn()">
   <div class="row">
     <div class="jumbotron">
       <h1 class="display-3">Hello, world!</h1>
@@ -12,13 +12,7 @@
         within the larger container.
       </p>
       <p class="lead">
-        <a
-          class="btn btn-success btn-lg"
-          [routerLink]="['/register']"
-          routerLinkActive="router-link-active"
-          role="button"
-          >რეგისტრაცია</a
-        >
+        <a class="btn btn-success btn-lg" role="button">რეგისტრაცია</a>
         <a class="btn btn-primary btn-lg" href="#" role="button"
           >მეტის გაგება</a
         >
@@ -26,3 +20,4 @@
     </div>
   </div>
 </div>
+<app-reactive-register *ngIf="!_authService.loggedIn()"></app-reactive-register>
