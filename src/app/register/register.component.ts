@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { AlertifyService } from '../_services/alertify.service';
 import { AuthService } from '../_services/auth.service';
 
@@ -9,14 +10,23 @@ import { AuthService } from '../_services/auth.service';
 })
 export class RegisterComponent implements OnInit {
   model: any = {};
+  registerForm: FormGroup;
+
   constructor(
     private _authService: AuthService,
     private _alertify: AlertifyService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.registerForm = new FormGroup({
+      username: new FormControl(),
+      password: new FormControl(),
+      confirmPassword: new FormControl(),
+    });
+  }
 
   register() {
+    /*
     this._authService.register(this.model).subscribe(
       () => {
         this._alertify.success('გაიარეთ რეგისტრაცია');
@@ -28,5 +38,7 @@ export class RegisterComponent implements OnInit {
       }
     );
     console.log(this.model);
+    */
+    console.log(this.registerForm.value);
   }
 }
